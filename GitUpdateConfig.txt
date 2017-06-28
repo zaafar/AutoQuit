@@ -1,0 +1,9 @@
+Owner: zaafar
+Name: AutoQuit
+Repository
+
+Ignore:
+src
+.gitignore
+README.md
+LICENSE
