@@ -21,7 +21,7 @@ namespace AutoQuit
             base.Render();
 
             // Panic Quit Key.
-            if (WinApi.IsKeyDown(Keys.F4))
+            if (WinApi.IsKeyDown(Settings.forcedAutoQuit))
                 PoeProcessHandler.ExitPoe("cports.exe", "/close * * * * " + GameController.Window.Process.ProcessName + ".exe");
 
             var LocalPlayer = GameController.Game.IngameState.Data.LocalPlayer;

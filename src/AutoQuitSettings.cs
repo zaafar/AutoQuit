@@ -9,11 +9,12 @@ namespace AutoQuit
         {
             percentHPQuit = new RangeNode<float>(35f, 0f, 100f);
             percentESQuit = new RangeNode<float>(35f, 0, 100);
+            forcedAutoQuit = System.Windows.Forms.Keys.F4;
         }
 
         #region Auto Quit Menu
-        [Menu("Press F4 for Forced Quit", 1)]
-        public EmptyNode emptynode { get; set; }
+        [Menu("Select key for Forced Quit", 1)]
+        public HotkeyNode forcedAutoQuit { get; set; }
         [Menu("Min % Life to Auto Quit", 2)]
         public RangeNode<float> percentHPQuit { get; set; }
         [Menu("Min % ES Auto Quit", 3)]
