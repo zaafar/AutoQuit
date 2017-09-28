@@ -2,6 +2,7 @@
 using PoeHUD.Plugins;
 using PoeHUD.Poe.Components;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AutoQuit
@@ -50,6 +51,11 @@ namespace AutoQuit
                         LogError("Error: Cannot find cports.exe, you must die now!", errmsg_time);
                     }
                 }
+            }
+
+            if (Settings.fps.Value > 0)
+            {
+                Thread.Sleep(1000/Settings.fps.Value);
             }
             return;
         }
