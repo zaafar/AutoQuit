@@ -10,7 +10,6 @@ namespace AutoQuit
             percentHPQuit = new RangeNode<float>(35f, 0f, 100f);
             percentESQuit = new RangeNode<float>(35f, 0, 100);
             forcedAutoQuit = System.Windows.Forms.Keys.F4;
-            fps = new RangeNode<int>(0, 0, 60);
         }
 
         #region Auto Quit Menu
@@ -21,8 +20,5 @@ namespace AutoQuit
         [Menu("Min % ES Auto Quit", 3)]
         public RangeNode<float> percentESQuit { get; set; }
         #endregion
-
-        [Menu("PoeHUD FPS limit")]
-        public RangeNode<int> fps { get; set; }
     }
 }

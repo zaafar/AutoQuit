@@ -59,12 +59,6 @@ namespace AutoQuit
                     }
                 }
             }
-
-            if (Settings.fps.Value > 0)
-            {
-                Thread.Sleep(1000 / Settings.fps.Value);
-            }
-            return;
         }
     }
 
