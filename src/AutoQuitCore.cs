@@ -81,11 +81,7 @@ namespace AutoQuit
                 {
                     var CPU = flask.GetComponent<Charges>().ChargesPerUse;
                     var curCharges = flask.GetComponent<Charges>().NumCharges;
-                    if (curCharges < CPU)
-                    {
-                        charges += 0;
-                    }
-                    else
+                    if (curCharges >= CPU)
                     {
                         charges += curCharges / CPU;
                     }
