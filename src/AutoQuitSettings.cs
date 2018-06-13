@@ -19,6 +19,8 @@ namespace AutoQuit
         public RangeNode<float> percentHPQuit { get; set; }
         [Menu("Min % ES Auto Quit", 3)]
         public RangeNode<float> percentESQuit { get; set; }
+        [Menu("Quit if HP flasks are empty", 4)]
+        public ToggleNode emptyHPFlasks { get; set; } = false;
         #endregion
     }
 }
