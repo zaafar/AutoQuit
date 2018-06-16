@@ -58,7 +58,59 @@ namespace AutoQuit
                         LogError("Error: Something went wrong!", errmsg_time);
                     }
                 }
+                if (Settings.emptyHPFlasks && gotCharges())
+                {
+                    try
+                    {
+                        Quit();
+                    }
+                    catch (Exception)
+                    {
+                        LogError("Error: Something went wrong!", errmsg_time);
+                    }
+                }
             }
+        }
+        public bool gotCharges()
+        {
+            int charges = 0;
+            var flaskList = getAllFlaskInfo();
+            if (flaskList.Any())
+            {
+                foreach (Entity flask in flaskList)
+                {
+                    var CPU = flask.GetComponent<Charges>().ChargesPerUse;
+                    var curCharges = flask.GetComponent<Charges>().NumCharges;
+                    if (curCharges >= CPU)
+                    {
+                        charges += curCharges / CPU;
+                    }
+                }
+                if (charges <= 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        public List<Entity> getAllFlaskInfo()
+        {
+            List<Entity> flaskList = new List<Entity>();
+            for (int i = 0; i < 5; i++)
+            {
+                var flask = GameController.Game.IngameState.IngameUi.InventoryPanel[InventoryIndex.Flask][i, 0, 5];
+                if (flask != null)
+                {
+                    var baseItem = GameController.Files.BaseItemTypes.Translate(flask.Path);
+                    if (baseItem != null && baseItem.BaseName.Contains("Life Flask"))
+                    {
+                        flaskList.Add(flask);
+                    }
+                }
+            }
+            return flaskList;
         }
     }
 
