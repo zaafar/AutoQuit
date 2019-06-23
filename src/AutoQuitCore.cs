@@ -1,22 +1,30 @@
 ﻿using PoeHUD.Framework;
 using PoeHUD.Plugins;
+using PoeHUD.Poe;
 using PoeHUD.Poe.Components;
+using PoeHUD.Poe.RemoteMemoryObjects;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading;
-using System.Windows.Forms;
 
 namespace AutoQuit
 {
     class AutoQuitCore : BaseSettingsPlugin<AutoQuitSettings>
     {
         private readonly int errmsg_time = 10;
+        private ServerInventory flaskInventory = null;
 
         public override void Initialise()
         {
             PluginName = "AutoQuit";
+            this.OnAreaChange += AutoQuitCore_OnAreaChange;
             base.Initialise();
+        }
+
+        private void AutoQuitCore_OnAreaChange(PoeHUD.Controllers.AreaController obj)
+        {
+            flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryBySlot(InventorySlotE.Flask1);
         }
 
         public void Quit()
@@ -98,9 +106,15 @@ namespace AutoQuit
         public List<Entity> getAllFlaskInfo()
         {
             List<Entity> flaskList = new List<Entity>();
+
+            if (flaskInventory == null)
+            {
+                flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryBySlot(InventorySlotE.Flask1);
+            }
+
             for (int i = 0; i < 5; i++)
             {
-                var flask = GameController.Game.IngameState.IngameUi.InventoryPanel[InventoryIndex.Flask][i, 0, 5];
+                var flask = flaskInventory[i, 0]?.Item;
                 if (flask != null)
                 {
                     var baseItem = GameController.Files.BaseItemTypes.Translate(flask.Path);
