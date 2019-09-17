@@ -1,0 +1,22 @@
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(8,15) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(1,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(2,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(3,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(4,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(5,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(6,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(7,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(2,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(3,7) : error CS0246: Не удалось найти тип или имя пространства имен "ExileCore" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(7,30) : error CS0246: Не удалось найти тип или имя пространства имен "ISettings" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(17,26) : error CS0246: Не удалось найти тип или имя пространства имен "BaseSettingsPlugin<>" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(18,16) : error CS0246: Не удалось найти тип или имя пространства имен "ToggleNode" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(22,16) : error CS0246: Не удалось найти тип или имя пространства имен "HotkeyNode" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(24,16) : error CS0246: Не удалось найти тип или имя пространства имен "RangeNode<>" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(34,41) : error CS0246: Не удалось найти тип или имя пространства имен "AreaInstance" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(26,16) : error CS0246: Не удалось найти тип или имя пространства имен "RangeNode<>" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitSettings.cs(28,16) : error CS0246: Не удалось найти тип или имя пространства имен "ToggleNode" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(120,21) : error CS0246: Не удалось найти тип или имя пространства имен "Entity" (возможно, отсутствует директива using или ссылка на сборку).
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(27,30) : error CS0115: '"AutoQuitCore.Initialise()": не найден метод, пригодный для переопределения.
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(49,30) : error CS0115: '"AutoQuitCore.Render()": не найден метод, пригодный для переопределения.
+E:\PoeHelper\Plugins\Source\AutoQuit\AutoQuitCore.cs(20,17) : error CS0246: Не удалось найти тип или имя пространства имен "ServerInventory" (возможно, отсутствует директива using или ссылка на сборку).

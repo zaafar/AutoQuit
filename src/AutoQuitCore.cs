@@ -1,8 +1,12 @@
-﻿using PoeHUD.Framework;
-using PoeHUD.Plugins;
-using PoeHUD.Poe;
-using PoeHUD.Poe.Components;
-using PoeHUD.Poe.RemoteMemoryObjects;
+﻿using ExileCore;
+using ExileCore.PoEMemory;
+using ExileCore.PoEMemory.Components;
+using ExileCore.PoEMemory.MemoryObjects;
+using ExileCore.Shared;
+using ExileCore.Shared.Enums;
+using ExileCore.Shared.Helpers;
+using Input = ExileCore.Input;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,21 +19,31 @@ namespace AutoQuit
         private readonly int errmsg_time = 10;
         private ServerInventory flaskInventory = null;
 
-        public override void Initialise()
+        public AutoQuitCore()
         {
-            PluginName = "AutoQuit";
-            this.OnAreaChange += AutoQuitCore_OnAreaChange;
-            base.Initialise();
+            Name = "AutoQuit";
         }
 
-        private void AutoQuitCore_OnAreaChange(PoeHUD.Controllers.AreaController obj)
+        public override bool Initialise()
+        {
+            //base.Initialise();
+
+            return true;
+        }
+
+        public override void AreaChange(AreaInstance area)
         {
             flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryBySlot(InventorySlotE.Flask1);
         }
 
+        //private void AutoQuitCore_OnAreaChange(AreaController obj)
+        //{
+            
+        //}
+
         public void Quit()
         {
-            CommandHandler.KillTCPConnectionForProcess(API.GameController.Window.Process.Id);
+            CommandHandler.KillTCPConnectionForProcess(GameController.Window.Process.Id);
         }
 
         public override void Render()
@@ -37,8 +51,8 @@ namespace AutoQuit
             base.Render();
 
             // Panic Quit Key.
-            if (WinApi.IsKeyDown(Settings.forcedAutoQuit))
-                Quit();
+            //if (WinApi.IsKeyDown(Settings.forcedAutoQuit)) -----------------------
+            if ( (WinApi.GetAsyncKeyState(Settings.forcedAutoQuit) & 0x8000) != 0) Quit();
 
             var LocalPlayer = GameController.Game.IngameState.Data.LocalPlayer;
             var PlayerHealth = LocalPlayer.GetComponent<Life>();

@@ -36,6 +36,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExileCore">
+      <HintPath>..\..\..\ExileCore.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -51,13 +54,6 @@
     <Compile Include="PoeProcessHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AutoQuitSettings.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\PoeHUD.csproj">
-      <Project>{e86368b2-ae1e-4489-a749-e29a0ab48f83}</Project>
-      <Name>PoeHUD</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
