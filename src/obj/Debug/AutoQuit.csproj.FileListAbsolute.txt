@@ -1,0 +1,6 @@
+D:\HUD\PoeHelper\Plugins\Compiled\AutoQuit\AutoQuit.dll
+D:\HUD\PoeHelper\Plugins\Compiled\AutoQuit\AutoQuit.pdb
+D:\HUD\ExileApi\Plugins\Source\AutoQuit\obj\Debug\AutoQuit.csprojAssemblyReference.cache
+D:\HUD\ExileApi\Plugins\Source\AutoQuit\obj\Debug\AutoQuit.csproj.CoreCompileInputs.cache
+D:\HUD\ExileApi\Plugins\Source\AutoQuit\obj\Debug\AutoQuit.dll
+D:\HUD\ExileApi\Plugins\Source\AutoQuit\obj\Debug\AutoQuit.pdb
