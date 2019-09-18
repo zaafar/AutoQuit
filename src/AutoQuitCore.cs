@@ -26,20 +26,16 @@ namespace AutoQuit
 
         public override bool Initialise()
         {
+            //this.OnAreaChange += AutoQuitCore_OnAreaChange;
             //base.Initialise();
 
             return true;
         }
 
-        public override void AreaChange(AreaInstance area)
+        private void AutoQuitCore_OnAreaChange(AreaController obj)
         {
             flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryBySlot(InventorySlotE.Flask1);
         }
-
-        //private void AutoQuitCore_OnAreaChange(AreaController obj)
-        //{
-            
-        //}
 
         public void Quit()
         {
