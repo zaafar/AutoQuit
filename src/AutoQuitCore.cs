@@ -32,9 +32,9 @@ namespace AutoQuit
             return true;
         }
 
-        private void AutoQuitCore_OnAreaChange(AreaController obj)
+        public override void AreaChange(AreaInstance area)
         {
-            flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryBySlot(InventorySlotE.Flask1);
+            flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryByType(InventoryTypeE.Flask);
         }
 
         public void Quit()
@@ -50,41 +50,34 @@ namespace AutoQuit
             //if (WinApi.IsKeyDown(Settings.forcedAutoQuit)) -----------------------
             if ( (WinApi.GetAsyncKeyState(Settings.forcedAutoQuit) & 0x8000) != 0) Quit();
 
+            if (GameController.Area.CurrentArea.IsTown || Settings.suspend && GameController.Area.CurrentArea.IsHideout)
+            {
+                return;
+            }
+
             var LocalPlayer = GameController.Game.IngameState.Data.LocalPlayer;
             var PlayerHealth = LocalPlayer.GetComponent<Life>();
+            bool _gotCharges = gotCharges();
+            int mode = Settings.emptyHPFlasks.Value;
+
             if (Settings.Enable && LocalPlayer.IsValid)
             {
-                if (Math.Round(PlayerHealth.HPPercentage, 3) * 100 < (Settings.percentHPQuit.Value))
+                if ((Math.Round(PlayerHealth.HPPercentage, 3) * 100 < (Settings.percentHPQuit.Value)
+                    || PlayerHealth.MaxES > 0 && (Math.Round(PlayerHealth.ESPercentage, 3) * 100 < (Settings.percentESQuit.Value)))
+
+                    // simple implication, quit on low HP/ES and if you have no more flask uses
+                    && mode < 2 | _gotCharges
+
+                    // force quit if you have no more flask uses
+                    || mode == 1 && _gotCharges)
                 {
                     try
                     {
                         Quit();
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        LogError("Error: Something went wrong!", errmsg_time);
-                    }
-                }
-                if (PlayerHealth.MaxES > 0 && (Math.Round(PlayerHealth.ESPercentage, 3) * 100 < (Settings.percentESQuit.Value)))
-                {
-                    try
-                    {
-                        Quit();
-                    }
-                    catch (Exception)
-                    {
-                        LogError("Error: Something went wrong!", errmsg_time);
-                    }
-                }
-                if (Settings.emptyHPFlasks && gotCharges())
-                {
-                    try
-                    {
-                        Quit();
-                    }
-                    catch (Exception)
-                    {
-                        LogError("Error: Something went wrong!", errmsg_time);
+                        LogError($"{e}", errmsg_time);
                     }
                 }
             }
@@ -119,7 +112,7 @@ namespace AutoQuit
 
             if (flaskInventory == null)
             {
-                flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryBySlot(InventorySlotE.Flask1);
+                flaskInventory = GameController.Game.IngameState.ServerData.GetPlayerInventoryByType(InventoryTypeE.Flask);
             }
 
             for (int i = 0; i < 5; i++)
